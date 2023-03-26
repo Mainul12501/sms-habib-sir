@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-{{isset($salaryGrade) ?'Update':'Create'}} Notice
+{{isset($salaryGrade) ?'Update':'Create'}} Salary Grade
 @endsection
 
 @section('body-title-section')

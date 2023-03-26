@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Account;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Account\FeeType;
 use Illuminate\Http\Request;
 
 class StudentFeeTypeController extends Controller
@@ -14,7 +15,9 @@ class StudentFeeTypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.account.fee-types.manage',[
+            'feeTypes'=> FeeType::all(),
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class StudentFeeTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.account.fee-types.create');
     }
 
     /**
@@ -35,7 +38,9 @@ class StudentFeeTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        return $request;
+        FeeType::saveOrUpdateFeeTypes($request);
+        return redirect()->route('fee-types.index')->with('success','Fee Type submit successfully');
     }
 
     /**
@@ -46,7 +51,10 @@ class StudentFeeTypeController extends Controller
      */
     public function show($id)
     {
-        //
+//        $notice=account_notice::find($id);
+//        $notice->status=$notice->status==0? '1':'0';
+//        $notice->save();
+//        return redirect()->route('fee-types.index')->with('success','Status Change successfully');
     }
 
     /**
@@ -55,9 +63,11 @@ class StudentFeeTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        return view('backend.account.fee-types.create',[
+            'feeType' => FeeType::where('slug', $slug)->first(),
+        ]);
     }
 
     /**
@@ -69,7 +79,9 @@ class StudentFeeTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        FeeType::saveOrUpdateFeeTypes($request, $id);
+        return redirect()->route('fee-types.index')->with('success','Fee Type update successfully');
+
     }
 
     /**
@@ -78,8 +90,11 @@ class StudentFeeTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+
+        $notice = FeeType::where('slug', $slug)->first();
+        $notice->delete();
+        return redirect()->route('fee-types.index')->with('success','Fee Type Delete successfully');
     }
 }

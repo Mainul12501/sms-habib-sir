@@ -165,7 +165,7 @@
                             <a href="{{ route('salary-grades.index') }}">Salary Grade</a>
                         </li>
                         <li>
-                            <a href="{{ route('salary-grades.index') }}">Student Fee Types</a>
+                            <a href="{{ route('fee-types.index') }}">Student Fee Types</a>
                         </li>
                     </ul>
                 </div>

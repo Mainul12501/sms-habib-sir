@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\ExamManagement\ExamMarkDistributionTypeController
 use App\Http\Controllers\Admin\Administrator\NoticeController;
 
 use App\Http\Controllers\Admin\Account\SalaryGradeController;
+use App\Http\Controllers\Admin\Account\StudentFeeTypeController;
 
 
 Route::middleware([
@@ -102,6 +103,8 @@ Route::middleware([
 //        Account routes
         //notice route
         Route::resource('salary-grades', SalaryGradeController::class);
+        //fee types route
+        Route::resource('fee-types', StudentFeeTypeController::class);
 
 //        Exam Routes
         Route::resource('exams', ExamController::class);
