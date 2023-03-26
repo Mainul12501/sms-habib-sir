@@ -35,6 +35,10 @@ use App\Http\Controllers\Admin\ExamManagement\ExamScheduleController;
 use App\Http\Controllers\Admin\ExamManagement\ExamAttendanceController;
 use App\Http\Controllers\Admin\ExamManagement\ExamMarkDistributionTypeController;
 
+use App\Http\Controllers\Admin\Administrator\NoticeController;
+
+use App\Http\Controllers\Admin\Account\SalaryGradeController;
+
 
 Route::middleware([
     'auth:sanctum',
@@ -90,6 +94,14 @@ Route::middleware([
         Route::resource('routines', RoutineController::class);
         //Routine route
         Route::resource('attendances', AttendanceController::class);
+
+//        Administrator routes
+        //notice route
+        Route::resource('notices', NoticeController::class);
+
+//        Account routes
+        //notice route
+        Route::resource('salary-grades', SalaryGradeController::class);
 
 //        Exam Routes
         Route::resource('exams', ExamController::class);

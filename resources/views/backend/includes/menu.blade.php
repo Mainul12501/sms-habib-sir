@@ -122,7 +122,7 @@
                             <a href="{{ route('routines.index') }}" class="{{ request()->is('admin/routines') || request()->is('admin/routines/*') ? 'active' : '' }}">Routines</a>
                         </li>
                         <li class="{{ request()->is('admin/attendances*') ? 'menuitem-active' : '' }}">
-                            <a href="{{ route('attendances.index') }}" class="{{ request()->is('admin/attendances') || request()->is('admin/attendances/*') ? 'active' : '' }}">Attendance</a>
+                            <a href="{{ route('attendances.index') }}" class="{{ request()->is('admin/attendances') || request()->is('admin/attendances/*') ? 'active' : '' }}">Attendance [DUE]</a>
                         </li>
                     </ul>
                 </div>
@@ -149,6 +149,37 @@
                         </li>
                         <li>
                             <a href="{{ route('exam-mark-distribution-types.index') }}">Mark Distribution Type</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item ">
+                <a data-bs-toggle="collapse" href="#accountModule" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span> Accounts </span>
+                </a>
+                <div class="collapse" id="accountModule">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('salary-grades.index') }}">Salary Grade</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('salary-grades.index') }}">Student Fee Types</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item ">
+                <a data-bs-toggle="collapse" href="#administratorModule" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span> Administrator </span>
+                </a>
+                <div class="collapse" id="administratorModule">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('notices.index') }}">Notice</a>
                         </li>
                     </ul>
                 </div>
