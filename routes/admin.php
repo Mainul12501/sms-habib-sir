@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\Administrator\NoticeController;
 use App\Http\Controllers\Admin\Account\SalaryGradeController;
 use App\Http\Controllers\Admin\Account\StudentFeeTypeController;
 use App\Http\Controllers\Admin\Account\StudentFeePaymentController;
+use App\Http\Controllers\Admin\Account\OtherIncomeController;
 
 
 Route::middleware([
@@ -47,9 +48,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('backend.home.dashboard');
-    })->name('dashboard');
+
+
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     Route::prefix('admin')->group(function (){
         //permissions route
@@ -108,6 +109,8 @@ Route::middleware([
         Route::resource('fee-types', StudentFeeTypeController::class);
         //student fee payment route
         Route::resource('student-fee-payments', StudentFeePaymentController::class);
+        //Other Income route
+        Route::resource('other-incomes', OtherIncomeController::class);
 
 //        Exam Routes
         Route::resource('exams', ExamController::class);

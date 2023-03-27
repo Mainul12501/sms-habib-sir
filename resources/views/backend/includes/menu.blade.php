@@ -170,6 +170,9 @@
                         <li>
                             <a href="{{ route('student-fee-payments.index') }}">Student Fee Payments</a>
                         </li>
+                        <li>
+                            <a href="{{ route('other-incomes.index') }}">Incomes</a>
+                        </li>
                     </ul>
                 </div>
             </li>

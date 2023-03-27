@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Front\FrontController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('/about', [FrontController::class, 'about'])->name('about');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
+Route::get('/gallery', [FrontController::class, 'gallery'])->name('gallery');
+
+
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
 });

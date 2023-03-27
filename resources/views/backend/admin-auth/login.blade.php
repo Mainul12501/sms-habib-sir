@@ -22,7 +22,7 @@
 
                             <!-- Logo -->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
-                                <a href="{{ route('/') }}">
+                                <a href="{{ url('/') }}">
                                     <span><img src="{{ isset($setting->logo) ? asset($setting->logo) : asset('/backend/assets/images/logo-default.jpg') }}" alt="" height="60"></span>
                                 </a>
                             </div>
