@@ -39,6 +39,7 @@ use App\Http\Controllers\Admin\Administrator\NoticeController;
 
 use App\Http\Controllers\Admin\Account\SalaryGradeController;
 use App\Http\Controllers\Admin\Account\StudentFeeTypeController;
+use App\Http\Controllers\Admin\Account\StudentFeePaymentController;
 
 
 Route::middleware([
@@ -105,6 +106,8 @@ Route::middleware([
         Route::resource('salary-grades', SalaryGradeController::class);
         //fee types route
         Route::resource('fee-types', StudentFeeTypeController::class);
+        //student fee payment route
+        Route::resource('student-fee-payments', StudentFeePaymentController::class);
 
 //        Exam Routes
         Route::resource('exams', ExamController::class);
@@ -130,9 +133,11 @@ Route::middleware([
     });
 
     Route::post('/update-exam-attendance', [ExamAttendanceController::class, 'updateExamAttendance'])->name('exam.attendance.edit');
+    Route::post('/search-student-fee-payment', [StudentFeePaymentController::class, 'searchFeePayment'])->name('search-student-fee-payment');
 //    ajax routes
     Route::post('/get-exam-schedule-by-exam-section-class', [ExamAttendanceController::class, 'getExamScheduleBySectionClassExam'])->name('get-exam-schedule-by-exam-section-class');
     Route::post('/get-student-exam-attendance', [ExamAttendanceController::class, 'getStudentExamAttendance'])->name('get-student-exam-attendance');
+    Route::post('/get-students-by-class-section', [StudentFeePaymentController::class, 'getStudents'])->name('get-students-by-class-section');
 });
 
 

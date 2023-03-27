@@ -13,7 +13,7 @@
         <div class="col-md-10 mx-auto">
             <div class="card mt-3">
                 <div class="card-header">
-                    <h4 class="float-start">{{isset($salaryGrade) ?'Update':'Create'}} Notice</h4>
+                    <h4 class="float-start">{{isset($salaryGrade) ?'Update':'Create'}} Salary Grade</h4>
                     <a href="{{ route('salary-grades.index') }}" class="btn btn-success float-end">
                         Manage
                     </a>
