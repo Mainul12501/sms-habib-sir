@@ -173,6 +173,9 @@
                         <li>
                             <a href="{{ route('other-incomes.index') }}">Incomes</a>
                         </li>
+                        <li>
+                            <a href="{{ route('expenses.index') }}">Expenses</a>
+                        </li>
                     </ul>
                 </div>
             </li>

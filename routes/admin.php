@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserManagement\UserController;
@@ -41,6 +42,7 @@ use App\Http\Controllers\Admin\Account\SalaryGradeController;
 use App\Http\Controllers\Admin\Account\StudentFeeTypeController;
 use App\Http\Controllers\Admin\Account\StudentFeePaymentController;
 use App\Http\Controllers\Admin\Account\OtherIncomeController;
+use App\Http\Controllers\Admin\Account\ExpenseController;
 
 
 Route::middleware([
@@ -50,7 +52,7 @@ Route::middleware([
 ])->group(function () {
 
 
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::prefix('admin')->group(function (){
         //permissions route
@@ -111,6 +113,8 @@ Route::middleware([
         Route::resource('student-fee-payments', StudentFeePaymentController::class);
         //Other Income route
         Route::resource('other-incomes', OtherIncomeController::class);
+        //Expense route
+        Route::resource('expenses', ExpenseController::class);
 
 //        Exam Routes
         Route::resource('exams', ExamController::class);
